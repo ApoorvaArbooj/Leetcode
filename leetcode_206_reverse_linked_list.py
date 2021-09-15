@@ -14,16 +14,22 @@ class ListNode:
     self.next = next
 
 class Solution:
-  def reverseList(self, head):
-    prevNode = None
-    currNode = head
-    nextNode = None
-    while currNode is not None:
-      nextNode = currNode.next
-      currNode.next = prevNode
-      prevNode = currNode
-      currNode = nextNode
-    return prevNode
+    def reverseList(self, head):
+        prevNode = None
+        currNode = head
+        nextNode = None
+        while currNode is not None:
+            nextNode = currNode.next
+            currNode.next = prevNode
+            prevNode = currNode
+            currNode = nextNode
+        return prevNode
+    
+    def reverseList_secondsolution(self,head):
+        prev, curr = None, head
+        while curr:
+            curr.next, prev, curr = prev, curr, curr.next
+        return prev
 
 l4 = ListNode(9)
 l3 = ListNode(1)
@@ -40,7 +46,7 @@ while ll:
 
 s = Solution()
 
-newHead = s.reverseList(head)
+newHead = s.reverseList_secondsolution(head)
 
 ll = newHead
 while ll:
